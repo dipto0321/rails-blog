@@ -28,9 +28,14 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     delete signout_path
     assert_not is_signed_in?
     assert_redirected_to root_url
+    delete signout_path
     follow_redirect!
     assert_select "a[href=?]", signin_path
     assert_select "a[href=?]", signout_path,      count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
+  end
+
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?('')
   end
 end
