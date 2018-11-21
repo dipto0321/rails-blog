@@ -10,6 +10,12 @@
     <%= form.label :password, "Password"%>
     <%= form.password_field :password, class:"form-control", id:"user_pwd", placeholder:"Password" %>
   </div>
+  <div class="form-check my-2">
+    <%= form.label :remember_me, class: "form-check-label" do %>
+    <%= form.check_box :remember_me , class: "form-check-input"%>
+      <span>Remember me on this computer</span>
+    <% end %>
+  </div>
   <%= form.submit "Sign In!", class: "btn btn-primary" %>
 <% end %>
 
