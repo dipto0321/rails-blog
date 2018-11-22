@@ -1,0 +1,12 @@
+<%= will_paginate @users, previous_label: '&laquo;', next_label: '&raquo;', list_classes: %w(pagination justify-content-center) %>
+
+<div class="card bg-light mb-3">
+  <div class="card-body">
+    <h5 class="card-title text-center">All users</h5>
+    <ul class="list-group list-group-flush">
+      <%= render @users %>
+  </ul>
+  </div>
+</div>
+
+<%= will_paginate @users, previous_label: '&laquo;', next_label: '&raquo;', list_classes: %w(pagination justify-content-center) %>
