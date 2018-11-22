@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 # bcrypt() is a sophisticated and secure hash algorithm designed by The OpenBSD project for hashing passwords.
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+gem 'faker', '~> 1.9', '>= 1.9.1'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'will_paginate-bootstrap4', '~> 0.2.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
