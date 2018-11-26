@@ -7,18 +7,17 @@
     <%= form.email_field :email, class: "form-control", id: "user_email", placeholder: "Enter your registered email to log in" %>
   </div>
   <div class="form-group">
-    <%= form.label :password, "Password"%><p>(<%= link_to  "forgot password", '#' %>)</p>
+    <%= form.label :password, "Password"%><span class="ml-2 pwd-reset">(<%= link_to  "forgot password", new_password_reset_path %>)</span>
     <%= form.password_field :password, class:"form-control", id:"user_pwd", placeholder:"Password" %>
   </div>
   <div class="form-check my-2">
     <%= form.label :remember_me, class: "form-check-label" do %>
-    <%= form.check_box :remember_me , class: "form-check-input"%>
+    <%= form.check_box :remember_me , class: "form-check-input" %>
       <span>Remember me on this computer</span>
     <% end %>
   </div>
   <%= form.submit "Sign In!", class: "btn btn-primary" %>
 <% end %>
-
 
 <p>New user? <%= link_to  "Sign up now!", signup_path %></p>
 </section>
