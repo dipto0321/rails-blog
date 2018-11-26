@@ -7,7 +7,7 @@
     <%= form.email_field :email, class: "form-control", id: "user_email", placeholder: "Enter your registered email to log in" %>
   </div>
   <div class="form-group">
-    <%= form.label :password, "Password"%>
+    <%= form.label :password, "Password"%><p>(<%= link_to  "forgot password", '#' %>)</p>
     <%= form.password_field :password, class:"form-control", id:"user_pwd", placeholder:"Password" %>
   </div>
   <div class="form-check my-2">
