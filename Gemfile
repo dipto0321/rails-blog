@@ -46,6 +46,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console', '>= 3.3.0'
+  gem 'hirb'
 end
 
 group :test do
