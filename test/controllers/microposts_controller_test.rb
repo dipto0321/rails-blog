@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
@@ -19,7 +21,7 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to signin_url
   end
 
-  test "should redirect destroy for wrong micropost" do
+  test 'should redirect destroy for wrong micropost' do
     sign_in_as(users(:michael))
     micropost = microposts(:ants)
     assert_no_difference 'Micropost.count' do

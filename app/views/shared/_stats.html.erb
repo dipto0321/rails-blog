@@ -1,0 +1,8 @@
+<% @user||= current_user %>
+<a class="btn btn-primary my-1" href="<%= following_user_path(@user) %>">
+  <span class= "badge badge-light"><%=  @user.following.count %></span> Following
+</a>
+<%  %>
+<a class="btn btn-info my-1" href="<%= followers_user_path(@user) %>">
+  <span class= "badge badge-light"><%= @user.followers.count %></span> Followers
+</a>

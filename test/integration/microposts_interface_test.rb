@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  test "micropost interface" do
+  test 'micropost interface' do
     sign_in_as(@user)
     get root_path
     assert_select 'ul.pagination'
     # Invalid submission
     assert_no_difference 'Micropost.count' do
-      post microposts_path, params: { micropost: { content: "" } }
+      post microposts_path, params: { micropost: { content: '' } }
     end
     assert_select 'div#error_explanation'
     # Valid submission
-    content = "This micropost really ties the room together"
+    content = 'This micropost really ties the room together'
     assert_difference 'Micropost.count', 1 do
       post microposts_path, params: { micropost: { content: content } }
     end
@@ -33,17 +35,17 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'Delete', count: 0
   end
 
-  test "micropost sidebar count" do
+  test 'micropost sidebar count' do
     sign_in_as(@user)
     get root_path
-    assert_match "#{@user.microposts.count} microposts", response.body
+    assert_match "<p class=\"btn btn-warning\"><span class= \"badge badge-light\">#{@user.microposts.count}</span> microposts</p>", response.body
     # User with zero microposts
     other_user = users(:malory)
     sign_in_as(other_user)
     get root_path
-    assert_match "0 microposts", response.body
-    other_user.microposts.create!(content: "A micropost")
+    assert_match "<p class=\"btn btn-warning\"><span class= \"badge badge-light\">#{other_user.microposts.count}</span> microposts</p>", response.body
+    other_user.microposts.create!(content: 'A micropost')
     get root_path
-    assert_match "1 micropost", response.body
+    assert_match "<p class=\"btn btn-warning\"><span class= \"badge badge-light\">#{other_user.microposts.count}</span> micropost</p>", response.body
   end
 end

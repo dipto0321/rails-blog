@@ -1,12 +1,14 @@
 <% provide(:title, 'Update user profile') %>
-<section class="container my-4">
-  <h2 class="text-center display-2">Update profile</h2>
-  <hr>
-  <div class="card mb-2" style="width: 14rem;">
-    <div class="card-body">
-    <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank" class="btn btn-primary mt-4">change</a>
+<section class="container my-4 card">
+  <div class="card-body">
+    <h2 class="text-center display-2">Update profile</h2>
+    <hr>
+    <div class="card mb-2" style="width: 14rem;">
+      <div class="card-body">
+      <%= gravatar_for @user %>
+        <a href="http://gravatar.com/emails" target="_blank" class="btn btn-primary mt-4">change</a>
+      </div>
     </div>
+    <%= render  "form" %>
   </div>
-  <%= render  "form" %>
 </section>
