@@ -1,4 +1,23 @@
 <% provide(:title, 'Home') %>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user-info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="w-100 card">
+        <div class="card-body">
+          <%= render 'shared/micropost_form' %>
+        </div>
+      </section>
+    </aside>
+    <div class="col-md-8">
+        <h3 class="display-4 text-center">Micropost Feed</h3>
+        <hr>
+        <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
 <div class="jumbotron my-2 text-center">
   <h1 class="display-4">Welcome to the Sample App</h1>
   <p class="lead">
@@ -12,3 +31,4 @@
 
 <%= link_to image_tag("rails.png", alt: "Rails logo"),
             'http://rubyonrails.org/' %>
+<% end %>

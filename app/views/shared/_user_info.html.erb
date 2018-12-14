@@ -1,0 +1,17 @@
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <%= link_to gravatar_for(current_user, size: 50), current_user, class: "img-fluid mt-3" %>
+        <h5 class="card-title"><%= current_user.name %></h5>
+        <%= link_to "View my profile", current_user, class: "btn btn-outline-info w-100 my-2" %>
+      </div>
+      <div class="col">
+        <% micropost = pluralize(current_user.microposts.count, "micropost").split(' ') %>
+        <p class="btn btn-warning"><span class= "badge badge-light"><%= micropost[0]%></span> <%=micropost[1] %></p>
+        <%= render  "shared/stats" %>
+      </div>
+    </div>
+  </div>
+</div>
