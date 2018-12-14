@@ -4,7 +4,7 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @base = 'Ruby on Rails Tutorial Sample App'
+    @base = 'Ruby on Rails Macro Blog App'
   end
 
   test 'should get root' do
