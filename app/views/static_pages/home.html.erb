@@ -5,12 +5,15 @@
       <section class="user-info">
         <%= render 'shared/user_info' %>
       </section>
-      <section class="w-100">
-        <%= render 'shared/micropost_form' %>
+      <section class="w-100 card">
+        <div class="card-body">
+          <%= render 'shared/micropost_form' %>
+        </div>
       </section>
     </aside>
     <div class="col-md-8">
-        <h3>Micropost Feed</h3>
+        <h3 class="display-4 text-center">Micropost Feed</h3>
+        <hr>
         <%= render 'shared/feed' %>
     </div>
   </div>

@@ -10,10 +10,7 @@
       <div class="col">
         <% micropost = pluralize(current_user.microposts.count, "micropost").split(' ') %>
         <p class="btn btn-warning"><span class= "badge badge-light"><%= micropost[0]%></span> <%=micropost[1] %></p>
-        <%  %>
-        <p class="btn btn-primary"><span class= "badge badge-light"><%= "0" %></span> <%= "Following" %></p>
-        <%  %>
-        <p class="btn btn-info"><span class= "badge badge-light"><%= '0' %></span> <%= 'Followers '%></p>
+        <%= render  "shared/stats" %>
       </div>
     </div>
   </div>

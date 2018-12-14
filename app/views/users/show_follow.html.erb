@@ -1,0 +1,39 @@
+<% provide(:title, @user.name) %>
+<div class="row my-2">
+  <aside class="col-md-4">
+    <section class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <%= gravatar_for @user %>
+            <h1 class="d-inline-block mt-1">
+              <%= @user.name %>
+            </h1>
+          </div>
+          <div class="col">
+            <%= render  "shared/stats" %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="card mt-2">
+      <section class="card-body">
+        <% if @users.any? %>
+          <% @users.each do |user| %>
+            <%= link_to gravatar_for(user, size: 30), user %>
+          <% end %>
+        <% end %>
+      </section>
+    </section>
+  </aside>
+  <aside class="col-md-8">
+    <h3 class="display-3 text-center"><%= @title %></h3>
+    <hr>
+    <% if @users.any? %>
+      <ul class="list-group list-group-flush">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate @users, previous_label: '&laquo;', next_label: '&raquo;', list_classes: %w(pagination justify-content-center mt-2) %>
+    <% end %>
+  </aside>
+</div>

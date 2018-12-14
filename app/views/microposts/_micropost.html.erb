@@ -1,20 +1,26 @@
 <li id="micropost-<%= micropost.id %>" class="list-group-item list-group-item-action flex-column align-items-start my-1">
     <div class="row">
       <div class="col-md-4">
-        <%= image_tag  micropost.picture.url, class: "img-fluid" if micropost.picture? %>
+        <% image_url = micropost.picture? ? micropost.picture.url : 'demo.svg' %>
+        <%= image_tag  image_url, class: "img-fluid" %>
       </div>
       <div class="col-md-8">
-        <div class="float-left mt-2">
-          <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+        <div class="row">
+          <div class="col-md-2 my-auto">
+            <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+          </div>
+          <div class="col-md-10">
+            <p class="mb-1"><%= micropost.content %></p>
+            <small class="d-inline-block">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</small>
+            <small>by <%= link_to micropost.user.name, micropost.user, class: 'badge badge-info' %></small>
+            
+            <% if current_user?(micropost.user) %>
+              <%= link_to  "Delete", micropost, method: :delete, 
+                                                        data: {confirm: 'Are you sure?'},
+                                                        class: "btn btn-danger btn-sm btn-block mt-2" %>
+            <% end %>
+          </div>
         </div>
-        <p class="mb-1"><%= micropost.content %></p>
-        <small class="user">by <%= link_to micropost.user.name, micropost.user, class: 'badge badge-info' %></small>
-        <small class="ml-5">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</small>
-        <% if current_user?(micropost.user) %>
-          <%= link_to  "Delete", micropost, method: :delete, 
-                                                    data: {confirm: 'Are you sure?'},
-                                                    class: "badge badge-danger ml-3" %>
-        <% end %>
       </div>
     </div>
     
